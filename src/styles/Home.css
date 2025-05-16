@@ -1,0 +1,38 @@
+.home-container {
+  background-image: url('../assets/background-home.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.home-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* effet grisé */
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.home-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.home-subtitle {
+  font-size: 1.5rem;
+}
+
+  
