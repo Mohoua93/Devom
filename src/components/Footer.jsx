@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // ← on importe Link
 import '../styles/Footer.css';
 
 const FooterSection = ({ title, children }) => {
@@ -29,26 +30,26 @@ const Footer = () => {
         {/* Navigation */}
         <FooterSection title="Navigation">
           <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/about">À propos</a></li>
-            <li><a href="/projects">Projets</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><Link to="/">Accueil</Link></li>
+            <li><Link to="/about">À propos</Link></li>
+            <li><Link to="/projects">Projets</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </FooterSection>
 
         {/* Légal */}
         <FooterSection title="Légal">
           <ul>
-            <li><a href="/mentions-legales">Mentions légales</a></li>
-            <li><a href="/politique-confidentialite">Confidentialité</a></li>
-            <li><a href="/cgu">CGU</a></li>
+            <li><Link to="/mentions-legales">Mentions légales</Link></li>
+            <li><Link to="/politiques-confidentialite">Confidentialité</Link></li>
+            <Link to="/cgu">CGU</Link>
           </ul>
         </FooterSection>
 
         {/* Contact */}
         <FooterSection title="Contact">
           <ul>
-            <li><a href="mailto:support@devom.com">contact@devom.com</a></li>
+            <li><a href="mailto:contact@devom.com">contact@devom.com</a></li>
             <li>07 81 62 80 93</li>
           </ul>
         </FooterSection>
@@ -62,4 +63,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
