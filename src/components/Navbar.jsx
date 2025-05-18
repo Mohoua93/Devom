@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css"; // Adjust the path as necessary
-import logo from "../assets/logo-navbar.png";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +15,7 @@ function Navbar() {
           <span></span>
           <span></span>
         </div>
-        <img src={logo} alt="DEVOM Logo" className="navbar-logo" />
+        <div className="navbar-logo">Devom</div>
       </nav>
 
       {/* Overlay */}
@@ -34,5 +33,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
