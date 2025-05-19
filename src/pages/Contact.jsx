@@ -1,4 +1,3 @@
-// src/pages/Contact.jsx
 import React, { useState } from "react";
 import "../styles/Contact.css";
 
@@ -53,6 +52,7 @@ const Contact = () => {
           name="name"
           id="name"
           required
+          autoComplete="name"
           value={formData.name}
           onChange={handleChange}
         />
@@ -63,6 +63,7 @@ const Contact = () => {
           name="email"
           id="email"
           required
+          autoComplete="email"
           value={formData.email}
           onChange={handleChange}
         />
@@ -73,6 +74,7 @@ const Contact = () => {
           id="message"
           rows="6"
           required
+          autoComplete="off"
           value={formData.message}
           onChange={handleChange}
         ></textarea>
@@ -81,7 +83,7 @@ const Contact = () => {
           {loading ? "Envoi..." : "Envoyer"}
         </button>
 
-        {status && <p className="status">{status}</p>}
+        {status && <p className="status" aria-live="polite">{status}</p>}
       </form>
     </main>
   );
