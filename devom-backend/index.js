@@ -4,25 +4,18 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 
 const app = express();
-
-// ✅ Configuration CORS stricte
-const corsOptions = {
-  origin: "https://www.devom.fr",
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
-  credentials: false
-};
-
-app.use(cors(corsOptions));
 app.use(express.json());
 
-// ✅ Réponse manuelle aux requêtes préflight (OPTIONS)
+// ✅ En-têtes CORS pour toutes les routes
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://www.devom.fr");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
+// ✅ Réponse aux requêtes préflight (OPTIONS)
 app.options("/api/contact", (req, res) => {
-  res.set({
-    "Access-Control-Allow-Origin": "https://www.devom.fr",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type"
-  });
   res.sendStatus(200);
 });
 
@@ -57,8 +50,8 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-// ✅ Port dynamique pour Render
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`✅ Backend Devom en ligne sur le port ${PORT}`);
 });
+

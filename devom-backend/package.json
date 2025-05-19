@@ -1,0 +1,25 @@
+{
+  "name": "devom-backend",
+  "version": "1.0.0",
+  "description": "Backend du formulaire de contact pour le site Devom",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "express",
+    "nodemailer",
+    "devom",
+    "contact",
+    "backend"
+  ],
+  "author": "Ton Nom",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.3"
+  }
+}
+
