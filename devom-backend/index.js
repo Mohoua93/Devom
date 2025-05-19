@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 });
 
 // ✅ Réponse aux requêtes préflight (OPTIONS) pour toutes les routes
-app.options("*", (req, res) => {
+app.options("/*", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "https://www.devom.fr");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -56,3 +56,4 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`✅ Backend Devom en ligne sur le port ${PORT}`);
 });
+
