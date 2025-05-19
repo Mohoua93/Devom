@@ -43,6 +43,7 @@ const About = () => {
       <section className="services">
         <h3>Ce que je propose</h3>
         <ul>
+          <li>🖥️ Développement de sites web sur-mesure</li>
           <li>🌐 Création de site vitrine sur-mesure</li>
           <li>📱 Design responsive mobile/tablette</li>
           <li>🛠️ Intégration de maquettes Figma</li>
