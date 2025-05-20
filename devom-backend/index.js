@@ -1,22 +1,21 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const nodemailer = require("nodemailer");
 
 const app = express();
+
+// Configurer CORS
+const corsOptions = {
+  origin: "https://www.devom.fr",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
-// ✅ Middleware CORS pour toutes les routes et toutes les méthodes
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://www.devom.fr");
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
-  next();
-});
-
-// ✅ Route de traitement du formulaire
+// Route de traitement du formulaire
 app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -26,8 +25,8 @@ app.post("/api/contact", async (req, res) => {
     secure: true,
     auth: {
       user: "contact@devom.fr",
-      pass: process.env.MAIL_PASS
-    }
+      pass: process.env.MAIL_PASS,
+    },
   });
 
   try {
@@ -37,7 +36,7 @@ app.post("/api/contact", async (req, res) => {
       subject: `Nouveau message de ${name}`,
       html: `<p><strong>Nom :</strong> ${name}</p>
              <p><strong>Email :</strong> ${email}</p>
-             <p><strong>Message :</strong><br>${message}</p>`
+             <p><strong>Message :</strong><br>${message}</p>`,
     });
 
     res.status(200).json({ message: "Message envoyé !" });
