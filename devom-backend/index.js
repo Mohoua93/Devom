@@ -10,6 +10,7 @@ const corsOptions = {
   origin: "https://www.devom.fr",
   methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
