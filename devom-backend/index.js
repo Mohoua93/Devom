@@ -1,15 +1,22 @@
 require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
-const corsMiddleware = require("./corsMiddleware");
 
 const app = express();
 app.use(express.json());
 
-// Utiliser le middleware CORS personnalisé
-app.use(corsMiddleware);
+// ✅ Middleware CORS pour toutes les routes et toutes les méthodes
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://www.devom.fr");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
 
-// Route de traitement du formulaire
+// ✅ Route de traitement du formulaire
 app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -44,6 +51,7 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`✅ Backend Devom en ligne sur le port ${PORT}`);
 });
+
 
 
 
