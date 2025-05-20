@@ -16,6 +16,15 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+// ✅ Répondre manuellement aux préflight OPTIONS
+app.options("/api/contact", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://www.devom.fr");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  return res.sendStatus(200);
+});
+
 // Route de traitement du formulaire
 app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
@@ -51,10 +60,3 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`✅ Backend Devom en ligne sur le port ${PORT}`);
 });
-
-
-
-
-
-
-
