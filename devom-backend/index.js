@@ -1,25 +1,19 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const nodemailer = require("nodemailer");
 
 const app = express();
 app.use(express.json());
 
-// ✅ En-têtes CORS pour toutes les routes
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://www.devom.fr");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
-
-// ✅ Réponse aux requêtes préflight (OPTIONS) pour toutes les routes
-app.options("/*", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://www.devom.fr");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.sendStatus(200);
-});
+// ✅ Configuration CORS propre avec le package officiel
+app.use(
+  cors({
+    origin: "https://www.devom.fr",
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"]
+  })
+);
 
 // ✅ Route de traitement du formulaire
 app.post("/api/contact", async (req, res) => {
@@ -56,4 +50,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`✅ Backend Devom en ligne sur le port ${PORT}`);
 });
+
 
