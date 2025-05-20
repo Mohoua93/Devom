@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 const app = express();
 app.use(express.json());
 
-// ✅ Configuration CORS propre avec le package officiel
+// ✅ Middleware CORS officiel
 app.use(
   cors({
     origin: "https://www.devom.fr",
@@ -14,6 +14,14 @@ app.use(
     allowedHeaders: ["Content-Type"]
   })
 );
+
+// ✅ 🔒 Fix manuel pour OPTIONS /api/contact
+app.options("/api/contact", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://www.devom.fr");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.sendStatus(200);
+});
 
 // ✅ Route de traitement du formulaire
 app.post("/api/contact", async (req, res) => {
@@ -50,5 +58,6 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`✅ Backend Devom en ligne sur le port ${PORT}`);
 });
+
 
 
