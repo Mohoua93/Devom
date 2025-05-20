@@ -81,7 +81,7 @@ const Contact = () => {
 
         <button type="submit" disabled={loading}>
           {loading ? "Envoi..." : "Envoyer"}
-        </button>
+        </button>        
 
         {status && <p className="status" aria-live="polite">{status}</p>}
       </form>
