@@ -21,7 +21,7 @@ const Contact = () => {
     setStatus("Envoi en cours...");
 
     try {
-      const response = await fetch("https://devom.com/api/contact", 
+      const response = await fetch("https://devom.com/contact", 
         {
         method: "POST",
         headers: {
