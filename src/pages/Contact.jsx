@@ -21,14 +21,15 @@ const Contact = () => {
     setStatus("Envoi en cours...");
 
     try {
-      const response = await fetch("https://devom.com/contact", 
+      const response = await fetch(
+        // Appeler le bon endpoint backend
+        "https://devom-backend.onrender.com/api/contact",
         {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        }
+      );
 
       if (response.ok) {
         setStatus("✅ Message envoyé avec succès !");
@@ -78,11 +79,11 @@ const Contact = () => {
           autoComplete="off"
           value={formData.message}
           onChange={handleChange}
-        ></textarea>
+        />
 
         <button type="submit" disabled={loading}>
           {loading ? "Envoi..." : "Envoyer"}
-        </button>        
+        </button>
 
         {status && <p className="status" aria-live="polite">{status}</p>}
       </form>
@@ -91,3 +92,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
