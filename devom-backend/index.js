@@ -34,7 +34,7 @@ app.post("/api/contact", async (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: "contact@devom.fr",
+      user: process.env.EMAIL_FROM,    // info@devom.fr
       pass: process.env.MAIL_PASS,
     },
   });
@@ -42,7 +42,7 @@ app.post("/api/contact", async (req, res) => {
   try {
     await transporter.sendMail({
       from: `"Devom contact" <${email}>`,
-      to: "contact@devom.fr",
+      to: process.env.EMAIL_TO,         // info@devom.fr
       subject: `Nouveau message de ${name}`,
       html: `<p><strong>Nom :</strong> ${name}</p>
              <p><strong>Email :</strong> ${email}</p>
@@ -60,3 +60,4 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`✅ Backend Devom en ligne sur le port ${PORT}`);
 });
+
