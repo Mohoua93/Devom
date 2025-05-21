@@ -23,7 +23,7 @@ const Contact = () => {
     try {
       const response = await fetch(
         // Appeler le bon endpoint backend
-        "https://devom.com/contact",
+        "https://devom.com",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
