@@ -21,9 +21,9 @@ const Contact = () => {
     setStatus("Envoi en cours...");
 
     try {
+      // *** C'est la ligne importante à modifier ! ***
       const response = await fetch(
-        // Appeler le bon endpoint backend
-        "https://devom.com",
+        "https://devom.onrender.com/send-email", // J'ai ajouté '/send-email' comme exemple de route
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -35,10 +35,13 @@ const Contact = () => {
         setStatus("✅ Message envoyé avec succès !");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus("❌ Une erreur est survenue lors de l'envoi.");
+        // Pour un meilleur débogage, tentez de récupérer l'erreur du backend
+        const errorData = await response.json();
+        setStatus(`❌ Erreur : ${errorData.message || 'Une erreur est survenue lors de l\'envoi.'}`);
       }
     } catch (error) {
-      setStatus("❌ Erreur réseau ou serveur.");
+      console.error("Erreur réseau ou serveur :", error); // Affiche l'erreur complète dans la console
+      setStatus("❌ Erreur réseau ou serveur. Vérifiez votre connexion.");
     }
 
     setLoading(false);
@@ -92,4 +95,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
