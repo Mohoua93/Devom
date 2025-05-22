@@ -90,6 +90,9 @@ const Contact = () => {
         <button
           type="submit"
           disabled={loading || status === "✅ Message envoyé avec succès !"}
+          className={`submit-btn ${
+            status === "✅ Message envoyé avec succès !" ? "success" : ""
+          }`}
         >
           {loading
             ? "Envoi..."
@@ -107,3 +110,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
