@@ -49,7 +49,7 @@ const Footer = () => {
         {/* Contact */}
         <FooterSection title="Contact">
           <ul>
-            <li><a href="mailto:contact@devom.com">info@devom.com</a></li>
+            <li><a href="mailto:contact@devom.com">info@devom.fr</a></li>
             <li>07 81 62 80 93</li>
           </ul>
         </FooterSection>
