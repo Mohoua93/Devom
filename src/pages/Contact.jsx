@@ -21,9 +21,8 @@ const Contact = () => {
     setStatus("Envoi en cours...");
 
     try {
-      // *** C'est la ligne à modifier ! ***
       const response = await fetch(
-        "https://devom.onrender.com/api/contact", // <-- CORRIGÉ : Ajoutez /api/contact
+        "https://devom.onrender.com/api/contact",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -34,6 +33,11 @@ const Contact = () => {
       if (response.ok) {
         setStatus("✅ Message envoyé avec succès !");
         setFormData({ name: "", email: "", message: "" });
+
+        // Effacer le message après 5 secondes
+        setTimeout(() => {
+          setStatus("");
+        }, 5000);
       } else {
         const errorData = await response.json();
         setStatus(`❌ Erreur : ${errorData.message || 'Une erreur est survenue lors de l\'envoi.'}`);
@@ -83,11 +87,20 @@ const Contact = () => {
           onChange={handleChange}
         />
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Envoi..." : "Envoyer"}
+        <button
+          type="submit"
+          disabled={loading || status === "✅ Message envoyé avec succès !"}
+        >
+          {loading
+            ? "Envoi..."
+            : status === "✅ Message envoyé avec succès !"
+            ? "✔️ Envoyé"
+            : "➡️ Envoyer"}
         </button>
 
-        {status && <p className="status" aria-live="polite">{status}</p>}
+        {status && status !== "✅ Message envoyé avec succès !" && (
+          <p className="status" aria-live="polite">{status}</p>
+        )}
       </form>
     </main>
   );
