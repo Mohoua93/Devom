@@ -15,7 +15,6 @@ const Projects = () => {
       <div className="project-list">
         {projects.map((project) => (
           <div className="project-card" key={project.id}>
-            <img src={project.image} alt={`${project.title} logo`} />
             <h3>{project.title}</h3>
             <p>{project.description}</p>
             <a
