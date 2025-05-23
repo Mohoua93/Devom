@@ -15,15 +15,19 @@ const Projects = () => {
       <div className="project-list">
         {projects.map((project) => (
           <div className="project-card" key={project.id}>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {project.type === "site" ? "Voir le site" : "Voir sur GitHub"}
-            </a>
+
+      
+            <div className="project-content">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {project.type === "site" ? "Voir le site" : "Voir sur GitHub"}
+              </a>
+            </div>
           </div>
         ))}
       </div>
@@ -32,3 +36,4 @@ const Projects = () => {
 };
 
 export default Projects;
+

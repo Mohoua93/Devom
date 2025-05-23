@@ -1,70 +1,77 @@
 .projects {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    color: white;
-  }
-  
-  .projects h2 {
-    font-size: 2.5rem;
-    color: #f39c12;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .project-list {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-  
-  .project-card {
-    background-color: #666;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  }
-  
-  .project-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 15px;
-  }
-  
-  .project-card h3 {
-    font-size: 1.4rem;
-    color: #f39c12;
-    margin-bottom: 10px;
-  }
-  
-  .project-card p {
-    font-size: 1rem;
-    color: #ccc;
-    margin-bottom: 15px;
-    line-height: 1.5;
-  }
-  
-  .project-card a {
-    display: inline-block;
-    margin-top: 10px;
-    background-color: #3498db;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .project-card a:hover {
-    background-color: #2980b9;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: white;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  color: #f39c12;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ✅ Grille flexible de cartes */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+/* ✅ Carte de projet améliorée */
+.project-card {
+  background-color: #666;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.project-card img {
+  width: 100%;
+  max-width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+/* ✅ Titres et texte */
+.project-card h3 {
+  font-size: 1.5rem;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 1rem;
+  color: #eee;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* ✅ Bouton / lien */
+.project-card a {
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+  background-color: #2980b9;
+}
+
   
