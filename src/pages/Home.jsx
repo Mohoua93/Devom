@@ -10,7 +10,7 @@ function Home() {
           <h1 className="home-title">Bienvenue sur Devom</h1>
           <p className="home-subtitle">Développeur Web Freelance</p>
           <p className="home-subtitle">Donnez vie à vos projets numériques</p>
-          <Link to="/projets" className="home-button">
+          <Link to="/Projects" className="home-button">
             Voir mes projets
           </Link>
         </div>

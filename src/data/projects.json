@@ -3,7 +3,7 @@
       "id": 1,
       "title": "Devom",
       "description": "Mon portfolio de développeur web.",
-      "image": "/images/devom-logo.png",
+      "image": "./image/devom-logo.png",
       "link": "https://www.devom.fr/",
       "type": "site"
     },
