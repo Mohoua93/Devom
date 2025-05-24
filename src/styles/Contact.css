@@ -2,13 +2,15 @@
   max-width: 600px;
   margin: auto;
   padding: 40px 20px;
-  color: #fff;
+  color: #F8FAFC; /* texte clair */
+  border-radius: 1rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .contact h2 {
   margin-bottom: 20px;
   font-size: 2rem;
-  color: #f39c12;
+  color: #3B82F6; /* bleu accent Devom */
 }
 
 form {
@@ -19,63 +21,67 @@ form {
 label {
   margin-top: 15px;
   margin-bottom: 5px;
-  font-weight: bold;
-  color: black;
+  font-weight: 600;
+  color: #2563EB; /* gris clair */
 }
 
 /* Style par défaut */
 input,
 textarea {
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 2px solid transparent;
   font-size: 1rem;
   resize: vertical;
   transition: border 0.3s, box-shadow 0.3s;
+  background-color: #F1F5F9;
+  color: #111827;
 }
 
 /* Champs invalides */
 input:invalid,
 textarea:invalid {
-  border: 2px solid #e74c3c;
-  box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+  border: 2px solid #EF4444; /* rouge Devom */
+  box-shadow: 0 0 5px rgba(239, 68, 68, 0.5);
 }
 
 /* Champs valides */
 input:valid,
 textarea:valid {
-  border: 2px solid #2ecc71;
+  border: 2px solid #10B981; /* vert succès Devom */
 }
 
 /* Focus */
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: black;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
 /* Bouton normal */
 button {
   margin-top: 20px;
-  background-color: #f39c12;
-  color: #111;
+  background-color: #3B82F6;
+  color: #FFFFFF;
   border: none;
   padding: 12px;
-  border-radius: 6px;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 /* Hover uniquement si pas succès */
 button:not(.success):hover {
-  background-color: #e67e22;
+  background-color: #2563EB;
 }
 
 /* Bouton succès */
 button.success {
-  background-color: #28a745 !important;
-  color: #fff;
+  background-color: #10B981 !important; /* vert succès */
+  color: #FFFFFF;
   cursor: default;
 }
 
@@ -83,6 +89,8 @@ button.success {
 .status {
   margin-top: 15px;
   font-style: italic;
+  color: #94A3B8;
 }
+
 
   

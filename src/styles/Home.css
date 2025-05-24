@@ -1,5 +1,5 @@
 .home-container {
-  background-image: url('../assets/background-home.jpg'); /* remplace si besoin */
+  background-image: url('../assets/background-home.jpg'); /* change si besoin */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -8,11 +8,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #F8FAFC;
   text-align: center;
   padding: 2rem;
   overflow: hidden;
   z-index: 1;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Overlay sombre */
@@ -20,7 +21,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* effet grisé foncé */
+  background-color: rgba(0, 0, 0, 0.6); /* effet grisé renforcé */
   z-index: -1;
 }
 
@@ -28,33 +29,36 @@
 .home-title {
   font-size: 3rem;
   margin-bottom: 1rem;
-  font-weight: bold;
+  font-weight: 800;
+  color: #FFFFFF;
 }
 
 /* Sous-titres */
 .home-subtitle {
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 600;
   margin-bottom: 0.8rem;
+  color: #E5E7EB;
 }
 
 /* Bouton "Voir mes projets" */
 .home-button {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  background-color: #ffffff;
-  color: #000;
+  background-color: #3B82F6;
+  color: #FFFFFF;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin-top: 1.5rem;
 }
 
 .home-button:hover {
-  background-color: #ffffff;
+  background-color: #2563EB;
   transform: scale(1.05);
 }
+
 
 
   

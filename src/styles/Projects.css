@@ -2,17 +2,18 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  color: white;
+  color: #111827;
+  font-family: 'Inter', sans-serif;
 }
 
 .projects h2 {
   font-size: 2.5rem;
-  color: #f39c12;
+  color: #3B82F6; /* titre accent Devom */
   text-align: center;
   margin-bottom: 40px;
 }
 
-/* ✅ Grille flexible de cartes */
+/* ✅ Grille responsive */
 .project-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -20,19 +21,20 @@
   padding: 0 1rem;
 }
 
-/* ✅ Carte de projet améliorée */
+/* ✅ Carte projet Devom */
 .project-card {
-  background-color: #666;
+  background-color: #1E293B; /* bleu foncé Devom */
   border-radius: 16px;
   padding: 25px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #F8FAFC;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .project-card img {
@@ -44,34 +46,33 @@
   display: block;
 }
 
-/* ✅ Titres et texte */
+/* ✅ Titres et descriptions */
 .project-card h3 {
   font-size: 1.5rem;
-  color: #f39c12;
+  color: #3B82F6;
   margin-bottom: 10px;
 }
 
 .project-card p {
   font-size: 1rem;
-  color: #eee;
+  color: #CBD5E1; /* gris clair lisible */
   margin-bottom: 15px;
   line-height: 1.6;
 }
 
-/* ✅ Bouton / lien */
+/* ✅ Bouton GitHub */
 .project-card a {
   display: inline-block;
-  background-color: #3498db;
+  background-color: #3B82F6;
   color: white;
   padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .project-card a:hover {
-  background-color: #2980b9;
+  background-color: #2563EB;
+  transform: scale(1.05);
 }
-
-  
