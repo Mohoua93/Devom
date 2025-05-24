@@ -73,10 +73,7 @@ button {
   transition: background 0.3s;
 }
 
-/* Hover uniquement si pas succès */
-button:not(.success):hover {
-  background-color: #2563EB;
-}
+
 
 /* Bouton succès */
 button.success {
