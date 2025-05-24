@@ -94,5 +94,9 @@
   transition: color 0.2s;
 }
 
+.side-menu a:hover {
+  color: #000;
+}
+
 
 
