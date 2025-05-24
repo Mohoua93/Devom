@@ -24,12 +24,12 @@ const About = () => {
       <section className="skills">
         <h3>Compétences techniques</h3>
         <ul>
-          <li>💻 HTML5 / CSS3 / SASS</li>
-          <li>⚙️ JavaScript ES6+ / React / JSX / Express/ Node.js</li>
-          <li>🧱 Responsive design / Mobile-first</li>
-          <li>🚀 Performance & optimisation SEO</li>
-          <li>🔗 Intégration d’API REST / JSON</li>
-          <li>🔒 Accessibilité / bonnes pratiques UX</li>
+          <li><span role="img" aria-label="ordinateur">💻</span> HTML5 / CSS3 / SASS</li>
+          <li><span role="img" aria-label="roue dentée">⚙️</span> JavaScript ES6+ / React / JSX / Express/ Node.js</li>
+          <li><span role="img" aria-label="briques">🧱</span> Responsive design / Mobile-first</li>
+          <li><span role="img" aria-label="fusée">🚀</span> Performance & optimisation SEO</li>
+          <li><span role="img" aria-label="chaîne">🔗</span> Intégration d’API REST / JSON</li>
+          <li><span role="img" aria-label="cadenas">🔒</span> Accessibilité / bonnes pratiques UX</li>
         </ul>
       </section>
 
@@ -43,12 +43,12 @@ const About = () => {
       <section className="services">
         <h3>Ce que je propose</h3>
         <ul>
-          <li>🖥️ Développement de sites web sur-mesure</li>
-          <li>🌐 Création de site vitrine sur-mesure</li>
-          <li>📱 Design responsive mobile/tablette</li>
-          <li>🛠️ Intégration de maquettes Figma</li>
-          <li>🔍 Optimisation SEO technique</li>
-          <li>💼 Maintenance et amélioration continue</li>
+          <li><span role="img" aria-label="écran d’ordinateur">🖥️</span> Développement de sites web sur-mesure</li>
+          <li><span role="img" aria-label="globe">🌐</span> Création de site vitrine sur-mesure</li>
+          <li><span role="img" aria-label="téléphone portable">📱</span> Design responsive mobile/tablette</li>
+          <li><span role="img" aria-label="outils">🛠️</span> Intégration de maquettes Figma</li>
+          <li><span role="img" aria-label="loupe">🔍</span> Optimisation SEO technique</li>
+          <li><span role="img" aria-label="mallette">💼</span> Maintenance et amélioration continue</li>
         </ul>
       </section>
 

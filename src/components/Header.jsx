@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { FiPhone } from "react-icons/fi"; // Icône téléphone
 import "../styles/Header.css";
 
 const Header = () => {
@@ -31,6 +32,7 @@ const Header = () => {
 
   return (
     <header className="header">
+      {/* Burger à gauche */}
       <div
         className="burger-button"
         onClick={toggleMenu}
@@ -42,11 +44,22 @@ const Header = () => {
         <span className={`bar ${menuOpen ? "open" : ""}`}></span>
       </div>
 
+      {/* Logo centré */}
       <h1 className="logo">
-  <Link to="/">Devom</Link>
-</h1>
+        <Link to="/">Devom</Link>
+      </h1>
 
+      {/* Bouton "Contactez-moi" en desktop */}
+      <Link to="/contact" className="contact-btn-desktop">
+        Contactez-moi
+      </Link>
 
+      {/* Icône téléphone en mobile */}
+      <Link to="/contact" className="contact-icon-mobile" aria-label="Contact">
+        <FiPhone />
+      </Link>
+
+      {/* Menu latéral mobile */}
       <nav
         className={`side-menu ${menuOpen ? "active" : ""}`}
         ref={menuRef}
@@ -63,6 +76,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-

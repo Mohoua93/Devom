@@ -1,6 +1,6 @@
+import React from "react"; // ← nécessaire avec react-scripts@3
 import { Link } from "react-router-dom";
-
-import "../styles/Home.css"; // Import CSS styles for the Home component
+import "../styles/Home.css";
 
 function Home() {
   return (
