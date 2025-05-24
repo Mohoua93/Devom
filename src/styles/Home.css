@@ -1,7 +1,9 @@
 .home-container {
-  background-image: url('../assets/background-home.jpg'); /* change si besoin */
+  background-image: url('../assets/background-home.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   position: relative;
   height: 100vh;
   display: flex;
@@ -16,13 +18,19 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Overlay sombre */
+/* ✅ Overlay sombre pour meilleure lisibilité */
 .home-container::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* effet grisé renforcé */
-  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* ✅ Permet de placer le contenu au-dessus de l'overlay */
+.home-container > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* Titre principal */
@@ -59,6 +67,22 @@
   transform: scale(1.05);
 }
 
+/* ✅ Responsive mobile */
+@media (max-width: 768px) {
+  .home-container {
+    background-size: cover;
+    background-position: center top;
+    background-attachment: scroll;
+  }
+
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .home-subtitle {
+    font-size: 1.1rem;
+  }
+}
 
 
   
