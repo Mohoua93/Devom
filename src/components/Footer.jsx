@@ -39,12 +39,13 @@ const Footer = () => {
 
         {/* Légal */}
         <FooterSection title="Légal">
-          <ul>
-            <li><Link to="/mentions-legales">Mentions légales</Link></li>
-            <li><Link to="/politiques-confidentialite">Confidentialité</Link></li>
-            <Link to="/cgu">CGU</Link>
-          </ul>
-        </FooterSection>
+  <ul>
+    <li><Link to="/mentions-legales">Mentions légales</Link></li>
+    <li><Link to="/politiques-confidentialite">Confidentialité</Link></li>
+    <li><Link to="/cgu">CGU</Link></li>
+  </ul>
+</FooterSection>
+
 
         {/* Contact */}
         <FooterSection title="Contact">
