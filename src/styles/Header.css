@@ -28,7 +28,7 @@
 .contact-btn-desktop {
   position: absolute;
   right: 20px;
-  background-color: #007bff;
+  background-color: #0056b3; /* corrigé pour le contraste */
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -38,10 +38,12 @@
   z-index: 2;
 }
 
+
 /* Hover */
 .contact-btn-desktop:hover {
-  background-color: #0056b3;
+  background-color: #003f7f;
 }
+
 
 /* Responsive : cacher le bouton sur mobile */
 @media (max-width: 768px) {
