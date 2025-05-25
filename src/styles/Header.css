@@ -52,6 +52,7 @@
 
 /* Bouton burger à gauche */
 .burger-button {
+  all: unset; /* Réinitialise les styles par défaut */
   position: absolute;
   left: 20px;
   top: 50%;
@@ -61,10 +62,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
   width: 30px;
   height: 30px;
 }
+
 
 .bar {
   height: 3px;
