@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FiPhone } from "react-icons/fi"; // Icône téléphone
+import { FiPhone } from "react-icons/fi";
 import "../styles/Header.css";
 
 const Header = () => {
@@ -24,25 +24,34 @@ const Header = () => {
       }
     };
 
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape" && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [menuOpen]);
 
   return (
     <header className="header">
-      {/* Burger à gauche */}
-      <div
+      {/* Burger menu en bouton accessible */}
+      <button
         className="burger-button"
         onClick={toggleMenu}
         ref={burgerRef}
         aria-label="Ouvrir le menu"
+        type="button"
       >
         <span className={`bar ${menuOpen ? "open" : ""}`}></span>
         <span className={`bar ${menuOpen ? "open" : ""}`}></span>
         <span className={`bar ${menuOpen ? "open" : ""}`}></span>
-      </div>
+      </button>
 
       {/* Logo centré */}
       <h1 className="logo">

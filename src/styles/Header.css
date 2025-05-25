@@ -137,6 +137,33 @@
   text-decoration: none;
 }
 
+/* ===== Accessibilité : focus visible ===== */
+
+/* Focus sur le bouton burger */
+.burger-button:focus {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+/* Focus sur les liens du menu latéral */
+.side-menu a:focus {
+  outline: 2px solid #3B82F6;
+  outline-offset: 4px;
+}
+
+/* Focus sur l'icône téléphone mobile */
+.contact-icon-mobile:focus {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+/* Focus sur le bouton contact desktop */
+.contact-btn-desktop:focus {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+
 /* Sur mobile : on cache le bouton et on affiche l’icône */
 @media (max-width: 768px) {
   .contact-btn-desktop {
@@ -146,6 +173,15 @@
   .contact-icon-mobile {
     display: block;
   }
+
+  .burger-button,
+.contact-icon-mobile {
+  min-width: 48px;
+  min-height: 48px;
+  justify-content: center;
+  align-items: center;
+}
+
 }
 
 
