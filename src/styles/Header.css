@@ -135,7 +135,7 @@
 .contact-icon-mobile {
   display: none;
   position: absolute;
-  right: 0px;
+  right: -10px;
   top: 65%; /* 👈 centrer verticalement */
   transform: translateY(-50%); /* 👈 centrer verticalement */
   font-size: 1.5rem;
