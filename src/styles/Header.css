@@ -136,11 +136,14 @@
   display: none;
   position: absolute;
   right: 20px;
+  top: 60%; /* 👈 centrer verticalement */
+  transform: translateY(-50%); /* 👈 centrer verticalement */
   font-size: 1.5rem;
   color: white;
   z-index: 2;
   text-decoration: none;
 }
+
 
 /* ===== Accessibilité : focus visible ===== */
 
