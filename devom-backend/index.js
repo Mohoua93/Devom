@@ -38,14 +38,6 @@ app.use(
 
 app.use(express.json()); // Middleware pour parser les requêtes JSON
 
-// ✅ L'ancien app.options manuel est commenté car le middleware 'cors' gère déjà cette partie
-// app.options("/api/contact", (req, res) => {
-//   res.setHeader("Access-Control-Allow-Origin", "https://www.devom.fr");
-//   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-//   res.setHeader("Access-Control-Allow-Credentials", "true");
-//   return res.sendStatus(200);
-// });
 
 // Route de traitement du formulaire
 app.post("/api/contact", async (req, res) => {
