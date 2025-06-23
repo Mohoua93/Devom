@@ -6,21 +6,15 @@ const nodemailer = require("nodemailer");
 const app = express();
 
 // --- DÉBUT DE LA SECTION CORS MISE À JOUR ---
-// Configurer les origines autorisées pour CORS
 const allowedOrigins = [
-  "https://www.devom.fr",     // Votre frontend en production sur Vercel
-  "http://localhost:3000",    // Votre frontend en développement local
-  // Si vous avez d'autres origines Vercel (e.g., l'URL par défaut .vercel.app avant votre custom domain)
-  // vous pouvez l'ajouter ici: "https://votre-app-vercel.vercel.app"
+  "https://www.devom.fr",
+  "http://localhost:3000",
 ];
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Permettre les requêtes sans origine (comme celles de Postman ou certains outils)
       if (!origin) return callback(null, true);
-
-      // Vérifier si l'origine de la requête est dans la liste des origines autorisées
       if (allowedOrigins.indexOf(origin) === -1) {
         const msg =
           "The CORS policy for this site does not allow access from the specified Origin: " + origin;
@@ -28,56 +22,55 @@ app.use(
       }
       return callback(null, true);
     },
-    methods: ["GET", "POST", "OPTIONS"], // Les méthodes HTTP autorisées
-    allowedHeaders: ["Content-Type"],    // Les en-têtes autorisés dans les requêtes
-    credentials: true,                   // Permet l'envoi de cookies d'authentification (si utilisés)
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
   })
 );
 // --- FIN DE LA SECTION CORS MISE À JOUR ---
 
+app.use(express.json());
 
-app.use(express.json()); // Middleware pour parser les requêtes JSON
-
-
-// Route de traitement du formulaire
-app.post("/api/contact", async (req, res) => {
+// ✅ Nouvelle version : réponse immédiate, traitement en arrière-plan
+app.post("/api/contact", (req, res) => {
   const { name, email, message } = req.body;
 
-  // Création du transporteur Nodemailer
+  // ✅ Répond immédiatement au frontend
+  res.status(200).json({ message: "Message reçu, envoi en cours." });
+
+  // 📩 Envoi de l'e-mail en arrière-plan
   const transporter = nodemailer.createTransport({
     host: "ssl0.ovh.net",
     port: 465,
-    secure: true, // Utilisez SSL/TLS
+    secure: true,
     auth: {
       user: process.env.EMAIL_FROM,
       pass: process.env.MAIL_PASS,
     },
   });
 
-  try {
-    // Envoi de l'e-mail
-    await transporter.sendMail({
-      from: `"Devom contact" <${email}>`, // L'expéditeur (nom visible + email de la personne qui remplit le formulaire)
-      to: process.env.EMAIL_TO,         // L'adresse qui reçoit le message (info@devom.fr)
-      subject: `Nouveau message de ${name}`, // Sujet de l'e-mail
+  transporter
+    .sendMail({
+      from: `"Devom contact" <${email}>`,
+      to: process.env.EMAIL_TO,
+      subject: `Nouveau message de ${name}`,
       html: `<p><strong>Nom :</strong> ${name}</p>
              <p><strong>Email :</strong> ${email}</p>
-             <p><strong>Message :</strong><br>${message}</p>`, // Contenu HTML de l'e-mail
+             <p><strong>Message :</strong><br>${message}</p>`,
+    })
+    .then(() => {
+      console.log("✅ Message envoyé avec succès par Nodemailer !");
+    })
+    .catch((error) => {
+      console.error("❌ Erreur Nodemailer :", error);
     });
-
-    console.log("✅ Message envoyé avec succès par Nodemailer !"); // Log de succès pour Render
-    res.status(200).json({ message: "Message envoyé !" }); // Réponse au frontend
-  } catch (error) {
-    console.error("❌ Erreur Nodemailer :", error); // Log d'erreur détaillé pour Render
-    res.status(500).json({ message: "Erreur d'envoi. Veuillez réessayer plus tard." }); // Réponse au frontend
-  }
 });
 
-// Définition du port d'écoute du serveur
-const PORT = process.env.PORT || 3001; // Render fournit sa propre variable PORT
+// Port d'écoute
+const PORT = process.env.PORT || 3001;
 
-// Démarrage du serveur
 app.listen(PORT, () => {
   console.log(`✅ Backend Devom en ligne sur le port ${PORT}`);
 });
+
 
